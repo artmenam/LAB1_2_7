@@ -2,6 +2,8 @@
 #include <string.h>
 #include "stdlib.h"
 #include <ctype.h>
+#include "funcs_str.h"
+
 
 void* readString(int len) {
     char buffer[256];  // Буфер для хранения строки

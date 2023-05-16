@@ -13,7 +13,7 @@ int AutoTest() {
     char Expected_concatenate1[] = "Artem ChernovEating meat";
 
     char result1[100];
-    strcpy(result1, concatenateStrings(str1, str2));
+    strcpy(result1, stringFunctions.concatenateStrings(str1, str2));
     printf("Result concatenateStrings: %s\n", result1);
     if (strcmp(result1, Expected_concatenate1) != 0) {
         printf("Wrong result concatenateStrings.\n");
@@ -21,27 +21,27 @@ int AutoTest() {
     }
 
     char result2[100];
-    strcpy(result2, getSubstring(str1, i, j));
+    strcpy(result2, stringFunctions.getSubstring(str1, i, j));
     printf("Result getSubstring: %s\n", result2);
     if (strcmp(result2, Expected_Result1) != 0) {
         printf("Wrong result getSubstring.\n");
         return 0;
     }
 
-    const char *result3 = findSubstringCaseSensitive(str2, substring2);
+    const char *result3 = stringFunctions.findSubstringCaseSensitive(str2, substring2);
     printf("Result findSubstringCaseSensitive: %s\n", result3);
     if (result3 != NULL) {
         return 0;
     }
 
-    const char *result4 = findSubstringCaseInsensitive(str2, substring2);
+    const char *result4 = stringFunctions.findSubstringCaseInsensitive(str2, substring2);
     printf("Result findSubstringCaseInsensitive: %s\n", result4);
     if (result4 == NULL) {
         printf("Wrong result findSubstringCaseInsensitive.\n");
         return 0;
     }
 
-    const char *result5 = findSubstringCaseInsensitive(str1, substring1);
+    const char *result5 = stringFunctions.findSubstringCaseInsensitive(str1, substring1);
     printf("Result findSubstringCaseInsensitive: %s\n", result5);
     if (result5 != NULL) {
         printf("Wrong result findSubstringCaseInsensitive.\n");
@@ -82,9 +82,9 @@ void menu() {
                     exit(0);
                 }
                 printf("Input second string.");
-                str2 = readString(len2);
-                print(str1);
-                print(str2);
+                str2 = stringFunctions.readString(len2);
+                stringFunctions.print(str1);
+                stringFunctions.print(str2);
 
                 while (1) {
                     void* result;
@@ -99,8 +99,6 @@ void menu() {
 
                         case (1): {
                             int choice3 = 0;
-                            print(str1);
-                            print(str2);
                             printf("MENU\n1.First + second\n2.Second + first\n");
                             check = check_input_int_2(&choice3);
                             if (check != 0) {
@@ -108,10 +106,10 @@ void menu() {
                                 exit(0);
                             }
                             if (choice3 == 1) {
-                                result = concatenateStrings(str1, str2);
+                                result = stringFunctions.concatenateStrings(str1, str2);
                             }
                             else {
-                                result = concatenateStrings(str2, str1);
+                                result = stringFunctions.concatenateStrings(str2, str1);
                             }
                             print(result);
                             free(result);
@@ -139,7 +137,7 @@ void menu() {
                                     printf("Input error.");
                                     exit(0);
                                 }
-                                result = getSubstring(str1,i,j);
+                                result = stringFunctions.getSubstring(str1,i,j);
                             }
                             else {
                                 int i = 0, j = 0;
@@ -153,7 +151,7 @@ void menu() {
                                     printf("Input error.");
                                     exit(0);
                                 }
-                                result = getSubstring(str2,i,j);
+                                result = stringFunctions.getSubstring(str2,i,j);
                             }
                             print(result);
                             free(result);
@@ -182,15 +180,15 @@ void menu() {
                                 printf("Error input.");
                                 exit(0);
                             }
-                            Substring = readString(lenSubstring);
+                            Substring = stringFunctions.readString(lenSubstring);
                             if (choiceGetSubstring == 1 && choiceWhichOne == 1) {
-                                result = findSubstringCaseSensitive(str1, Substring);
+                                result = stringFunctions.findSubstringCaseSensitive(str1, Substring);
                             } else if (choiceGetSubstring == 2 && choiceWhichOne == 1) {
-                                result = findSubstringCaseInsensitive(str1, Substring);
+                                result = stringFunctions.findSubstringCaseInsensitive(str1, Substring);
                             } else if (choiceGetSubstring == 1 && choiceWhichOne == 2) {
-                                result = findSubstringCaseSensitive(str2, Substring);
+                                result = stringFunctions.findSubstringCaseSensitive(str2, Substring);
                             } else if (choiceGetSubstring == 2 && choiceWhichOne == 2) {
-                                result = findSubstringCaseInsensitive(str2, Substring);
+                                result = stringFunctions.findSubstringCaseInsensitive(str2, Substring);
                             }
                             if (result != NULL) {
                                 printf("Yes, subsrting is exist\n");
