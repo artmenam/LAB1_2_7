@@ -11,7 +11,6 @@ void *readString(int len) {
         printf("Enter the string: ");
         fgets(buffer, sizeof(buffer), stdin);
         if (len + 1 != strlen(buffer)) {
-            printf("%s\n", buffer);
             printf("Error input. Try again.\n");
         }
     }

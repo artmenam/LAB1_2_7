@@ -188,9 +188,9 @@ void menu() {
                                 result = strFunctions.findSubstringCaseInsensitive(str2, Substring);
                             }
                             if (result != NULL) {
-                                printf("Yes, subsrting is exist\n");
+                                printf("Yes, substring is exists\n");
                             } else {
-                                printf("No, substring is not exist\n");
+                                printf("No, substring is not exists\n");
                             }
                             break;
                         }
@@ -201,7 +201,7 @@ void menu() {
                             exit(0);
                         }
                         default: {
-                            printf("Incorrect incert, try again.");
+                            printf("Incorrect input, try again.");
                             break;
                         }
                     }
@@ -221,7 +221,7 @@ void menu() {
                 exit(0);
             }
             default: {
-                printf("Incorrect incert, try again.");
+                printf("Incorrect input, try again.");
                 break;
             }
         }
