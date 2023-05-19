@@ -5,17 +5,17 @@
 #include "funcs_str.h"
 
 
-void* readString(int len) {
-    char *buffer = (char*) malloc((len + 1) * sizeof(char));  // Буфер для хранения строки
-    while(len + 1 != strlen(buffer)) {
+void *readString(int len) {
+    char *buffer = (char *) malloc((len + 1) * sizeof(char));  // Буфер для хранения строки
+    while (len + 1 != strlen(buffer)) {
         printf("Enter the string: ");
         fgets(buffer, sizeof(buffer), stdin);
         if (len + 1 != strlen(buffer)) {
-            printf("%s\n",buffer);
+            printf("%s\n", buffer);
             printf("Error input. Try again.\n");
         }
     }
-    char* str = (char*)malloc((len + 1) * sizeof(char));
+    char *str = (char *) malloc((len + 1) * sizeof(char));
     if (str == NULL) {
         printf("Memory allocation error.\n");
         return NULL;
@@ -30,12 +30,12 @@ void* readString(int len) {
     return str;
 }
 
-void* concatenateStrings(void *str1, void *str2) {
-    char* s1 = (char*)str1;
-    char* s2 = (char*)str2;
+void *concatenateStrings(void *str1, void *str2) {
+    char *s1 = (char *) str1;
+    char *s2 = (char *) str2;
     size_t len1 = strlen(s1);
     size_t len2 = strlen(s2);
-    char* result = malloc(len1 + len2 + 1);
+    char *result = malloc(len1 + len2 + 1);
 
     if (result == NULL) {
         printf("Error: Failed to allocate memory.\n");
@@ -48,8 +48,8 @@ void* concatenateStrings(void *str1, void *str2) {
     return result;
 }
 
-void* getSubstring(void* str, int start, int end) {
-    char* s = (char*)str;
+void *getSubstring(void *str, int start, int end) {
+    char *s = (char *) str;
     size_t len = strlen(s);
 
     if (start < 0 || start >= len || end < start || end >= len) {
@@ -58,7 +58,7 @@ void* getSubstring(void* str, int start, int end) {
     }
 
     size_t sub_len = end - start + 1;
-    char* substring = malloc(sub_len + 1);
+    char *substring = malloc(sub_len + 1);
 
     if (substring == NULL) {
         printf("Error: Failed to allocate memory.\n");
@@ -72,13 +72,13 @@ void* getSubstring(void* str, int start, int end) {
     return substring;
 }
 
-void* findSubstringCaseSensitive(void* str, void* substr) {
-    char* substring1 = (char*) substr;
-    char* string = (char*) str;
+void *findSubstringCaseSensitive(void *str, void *substr) {
+    char *substring1 = (char *) substr;
+    char *string = (char *) str;
     return strstr(string, substring1);
 }
 
-void* findSubstringCaseInsensitive(const char* str, const char* substr) {
+void *findSubstringCaseInsensitive(const char *str, const char *substr) {
     int strLength = strlen(str);
     int substrLength = strlen(substr);
 
@@ -100,7 +100,7 @@ void* findSubstringCaseInsensitive(const char* str, const char* substr) {
 }
 
 void print(void *str) {
-    char* s = (char*)str;
+    char *s = (char *) str;
     printf("string:'%s'\n", s);
 }
 
