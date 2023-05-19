@@ -17,13 +17,6 @@ struct StringFunctions {
     void (*print)(void*);
 };
 
-struct StringFunctions stringFunctions = {
-        .readString = readString,
-        .concatenateStrings = concatenateStrings,
-        .getSubstring = getSubstring,
-        .findSubstringCaseSensitive = findSubstringCaseSensitive,
-        .findSubstringCaseInsensitive = findSubstringCaseInsensitive,
-        .print = print
-};
+extern const struct StringFunctions strFunctions;
 
 #endif //LAB1_2_7_FUNCS_STR_H

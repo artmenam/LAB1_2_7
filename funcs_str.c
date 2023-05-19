@@ -15,8 +15,6 @@ void* readString(int len) {
             printf("Error input. Try again.\n");
         }
     }
-
-    // Выделяем память для строки
     char* str = (char*)malloc((len + 1) * sizeof(char));
     if (str == NULL) {
         printf("Memory allocation error.\n");
@@ -27,7 +25,7 @@ void* readString(int len) {
     for (size_t i = 0; i < len; i++) {
         str[i] = buffer[i];
     }
-    str[len] = '\0';  // Добавляем завершающий нулевой символ
+    str[len] = '\0';
 
     return str;
 }
@@ -81,27 +79,36 @@ void* findSubstringCaseSensitive(void* str, void* substr) {
 }
 
 void* findSubstringCaseInsensitive(const char* str, const char* substr) {
-    int strLength = strlen(str);  // Длина исходной строки
-    int substrLength = strlen(substr);  // Длина подстроки
+    int strLength = strlen(str);
+    int substrLength = strlen(substr);
 
     for (int i = 0; i <= strLength - substrLength; i++) {
         int j;
 
         for (j = 0; j < substrLength; j++) {
             if (tolower(str[i + j]) != tolower(substr[j])) {
-                break;  // Если символы не совпадают, прерываем внутренний цикл
+                break;
             }
         }
 
         if (j == substrLength) {
-            return &str[i];  // Если все символы подстроки совпадают, возвращаем указатель на начало найденной подстроки
+            return &str[i];
         }
     }
 
-    return NULL;  // Если подстрока не найдена, возвращаем NULL
+    return NULL;
 }
 
 void print(void *str) {
     char* s = (char*)str;
     printf("string:'%s'\n", s);
 }
+
+const struct StringFunctions strFunctions = {
+        .readString = readString,
+        .concatenateStrings = concatenateStrings,
+        .getSubstring = getSubstring,
+        .findSubstringCaseSensitive = findSubstringCaseSensitive,
+        .findSubstringCaseInsensitive = findSubstringCaseInsensitive,
+        .print = print
+};
