@@ -6,7 +6,7 @@
 
 
 void* readString(int len) {
-    char buffer[256];  // Буфер для хранения строки
+    char *buffer = (char*) malloc((len + 1) * sizeof(char));  // Буфер для хранения строки
     while(len + 1 != strlen(buffer)) {
         printf("Enter the string: ");
         fgets(buffer, sizeof(buffer), stdin);

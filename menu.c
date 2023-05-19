@@ -60,8 +60,7 @@ void menu() {
             printf("Input error.");
             exit(0);
         }
-        switch(choice) {
-
+        switch (choice) {
             case (1): {
                 int len1 = 0, len2 = 0;
                 void *str1;
@@ -72,7 +71,7 @@ void menu() {
                     printf("Input error.");
                     exit(0);
                 }
-                printf("Input first string.");
+                printf("Input first string.\n");
                 str1 = strFunctions.readString(len1);
 
                 printf("Input length of the second string.\n");
@@ -81,13 +80,13 @@ void menu() {
                     printf("Input error.");
                     exit(0);
                 }
-                printf("Input second string.");
+                printf("Input second string.\n");
                 str2 = strFunctions.readString(len2);
                 strFunctions.print(str1);
                 strFunctions.print(str2);
 
                 while (1) {
-                    void* result;
+                    void *result;
                     printf("MENU\n1.Concatenate strings\n2.Get substring\n3.Find substring\n4.Finish\n");
                     int choice2 = 0;
                     check = check_input_int(&choice2);
@@ -107,8 +106,7 @@ void menu() {
                             }
                             if (choice3 == 1) {
                                 result = strFunctions.concatenateStrings(str1, str2);
-                            }
-                            else {
+                            } else {
                                 result = strFunctions.concatenateStrings(str2, str1);
                             }
                             print(result);
@@ -125,43 +123,42 @@ void menu() {
                                 exit(0);
                             }
                             printf("MENU\nwrite i and j\n");
-                            if (choice4 == 1){
+                            if (choice4 == 1) {
                                 int i = 0, j = 0;
-                                check = check_input_int_i_and_j(&i,len1);
+                                check = check_input_int_i_and_j(&i, len1);
                                 if (check != 0) {
                                     printf("Input error.");
                                     exit(0);
                                 }
-                                check = check_input_int_i_and_j(&j,len1);
+                                check = check_input_int_i_and_j(&j, len1);
                                 if (check != 0) {
                                     printf("Input error.");
                                     exit(0);
                                 }
-                                result = strFunctions.getSubstring(str1,i,j);
-                            }
-                            else {
+                                result = strFunctions.getSubstring(str1, i, j);
+                            } else {
                                 int i = 0, j = 0;
-                                check = check_input_int_i_and_j(&i,len1);
+                                check = check_input_int_i_and_j(&i, len1);
                                 if (check != 0) {
                                     printf("Input error.");
                                     exit(0);
                                 }
-                                check = check_input_int_i_and_j(&j,len1);
+                                check = check_input_int_i_and_j(&j, len1);
                                 if (check != 0) {
                                     printf("Input error.");
                                     exit(0);
                                 }
-                                result = strFunctions.getSubstring(str2,i,j);
+                                result = strFunctions.getSubstring(str2, i, j);
                             }
                             print(result);
                             free(result);
                             break;
                         }
 
-                        case(3): {
+                        case (3): {
                             printf("MENU\n1.Sensitive\n2.Insensitive\n");
                             int choiceGetSubstring = 0, choiceWhichOne = 0;
-                            check= check_input_int_2(&choiceGetSubstring);
+                            check = check_input_int_2(&choiceGetSubstring);
                             if (check != 0) {
                                 printf("Input error");
                                 exit(0);
@@ -172,11 +169,11 @@ void menu() {
                                 printf("Input error");
                                 exit(0);
                             }
-                            void* Substring;
+                            void *Substring;
                             int lenSubstring = 0;
                             printf("Write len of substring:");
                             check = check_input_int(&lenSubstring);
-                            if(check != 0) {
+                            if (check != 0) {
                                 printf("Error input.");
                                 exit(0);
                             }
@@ -192,8 +189,7 @@ void menu() {
                             }
                             if (result != NULL) {
                                 printf("Yes, subsrting is exist\n");
-                            }
-                            else {
+                            } else {
                                 printf("No, substring is not exist\n");
                             }
                             break;
@@ -216,13 +212,17 @@ void menu() {
             case (2): {
                 if (AutoTest() == 1) {
                     printf("Success!!");
-                }else {
+                } else {
                     printf("Error");
                 }
                 exit(0);
             }
-            case(3): {
+            case (3): {
                 exit(0);
+            }
+            default: {
+                printf("Incorrect incert, try again.");
+                break;
             }
         }
     }
