@@ -73,7 +73,7 @@ void menu() {
                     exit(0);
                 }
                 printf("Input first string.");
-                str1 = readString(len1);
+                str1 = strFunctions.readString(len1);
 
                 printf("Input length of the second string.\n");
                 check = check_input_int(&len2);
