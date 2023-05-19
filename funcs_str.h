@@ -15,15 +15,10 @@ void print(void *);
 
 struct StringFunctions {
     void *(*readString)(int);
-
     void *(*concatenateStrings)(void *, void *);
-
     void *(*getSubstring)(void *, int, int);
-
     void *(*findSubstringCaseSensitive)(void *, void *);
-
     void *(*findSubstringCaseInsensitive)(const char *, const char *);
-
     void (*print)(void *);
 };
 
