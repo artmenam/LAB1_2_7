@@ -21,7 +21,7 @@ void *readString(int len) {
         return NULL;
     }
 
-    // Копируем строку в выделенную память
+
     for (size_t i = 0; i < len; i++) {
         str[i] = buffer[i];
     }
